@@ -20,7 +20,7 @@ export default function Chat() {
   useEffect(() => {
     
     // axios.post('http://localhost:8000/api/chats', {'username': username})
-    axios.post('http://51.20.185.25:8000/api/chats', {'username': username})
+    axios.post('http://16.171.152.69:8000/api/chats', {'username': username})
     .then(function (response) {
         const {chats} = response.data;
         console.log(chats);

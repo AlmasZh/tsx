@@ -33,7 +33,7 @@ function Input(props) {
 
   const sendMessage = async (time) => {
     // axios.post('http://localhost:8000/api/send', {"message": message, "time": time, "chat_id": here, 'sender': username})
-    axios.post('http://51.20.185.25:8000/api/send', {"message": message, "time": time, "chat_id": here, 'sender': username})
+    axios.post('http://16.171.152.69:8000/api/send', {"message": message, "time": time, "chat_id": here, 'sender': username})
         .then(function (response) {
             const {insert} = response.data;
             console.log(insert);
