@@ -27,8 +27,8 @@ export default function Contact() {
   useEffect(() => {
     const start = async () => {
       try{
-        const response = await axios.post('http://localhost:8000/api/chats', {'username': username});
-        // const response = await axios.post('http://51.20.185.25:8000/api/chats', {'username': username});
+        // const response = await axios.post('http://localhost:8000/api/chats', {'username': username});
+        const response = await axios.post('http://51.20.185.25:8000/api/chats', {'username': username});
         const {chats} = response.data;
         setChats(chats);
         setChatsStatic(chats);
@@ -46,8 +46,8 @@ export default function Contact() {
         }
       });
       if(here != undefined) {
-        axios.post('http://localhost:8000/api/messages', {'chat': `${here}`})
-        // axios.post('http://51.20.185.25:8000/api/messages', {'chat': `${here}`})
+        // axios.post('http://localhost:8000/api/messages', {'chat': `${here}`})
+        axios.post('http://51.20.185.25:8000/api/messages', {'chat': `${here}`})
         .then(function (response) {
             const {messages} = response.data;
             console.log(messages);

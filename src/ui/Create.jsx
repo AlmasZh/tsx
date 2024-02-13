@@ -13,8 +13,8 @@ export default function Create(props) {
         route('/');
       }
     const setNewChatsStatic = useStore((state) => state.setNewChatsStatic);
-    axios.post('http://localhost:8000/api/search', {'text': 'yes'})
-    // axios.post('http://51.20.185.25:8000/api/search', {'text': 'yes'})
+    // axios.post('http://localhost:8000/api/search', {'text': 'yes'})
+    axios.post('http://51.20.185.25:8000/api/search', {'text': 'yes'})
       .then(function (response) {
         const {chats} = response.data;
         setNewChatsStatic(chats);
