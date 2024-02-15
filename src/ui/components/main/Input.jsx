@@ -23,7 +23,12 @@ function Input(props) {
     }
   });
   
-  const socket = io('https://16.171.152.69:5173');
+  const socket = io('https://16.171.152.69:5173',{
+    withCredentials: true,
+    extraHeaders: {
+      "my-custom-header": "abcd"
+    }
+  });
   socket.on('sendReceived', (message) => {
     if(message.chat_id === here) {
       addingMessage(message);
