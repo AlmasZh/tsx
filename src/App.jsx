@@ -3,13 +3,14 @@ import Login from "./ui/Login"
 import Register from "./ui/Register"
 import Chat from './ui/Chat'
 import Contact from "./ui/Contact"
-
+import { io } from 'socket.io-client'
+import { useStore } from './ui/lib/store/store'
 import './App.css'
 import { BrowserRouter as Router, Route, Routes  } from 'react-router-dom'
 
 function App() {
-  const [count, setCount] = useState(0)
-
+  const [count, setCount] = useState(0);
+  
   return (
     <Router>
       <Routes>

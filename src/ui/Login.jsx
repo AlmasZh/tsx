@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom'; 
 import axios from 'axios';
 import { useStore } from './lib/store/store';
-
+import { io } from 'socket.io-client'
 
 const Login = () => {
     const [email, setEmail] = useState('');
@@ -10,6 +10,7 @@ const Login = () => {
     const [error, setError] = useState(false);
     const logIn = useStore((state) => state.logIn);
     const setUsername = useStore((state) => state.setUsername);
+    const socket = io();
 
     //create an object that have message time userName user_name
     const route = useNavigate();

@@ -5,6 +5,7 @@ import { useMessages, useStore } from "../../lib/store/store";
 import axios from "axios";
 
 function Input(props) {
+  
   // const [inputValue, setInputValue] = useState("");
   const username = useStore((state) => state.username)
   const { message, setText } = useCounterStore();
@@ -21,6 +22,13 @@ function Input(props) {
     }
   });
   
+  const socket = io('https://16.171.152.69:5173');
+  socket.on('sendReceived', (message) => {
+    if(message.chat_id === here) {
+      addingMessage(message);
+    }
+  })
+
   const clearInput = () => {
     setText('');
   }
@@ -29,7 +37,6 @@ function Input(props) {
     // setInputValue(elem.target.value);
     setText(elem.target.value);
   }
-
 
   const sendMessage = async (time) => {
     // axios.post('http://localhost:8000/api/send', {"message": message, "time": time, "chat_id": here, 'sender': username})
@@ -53,6 +60,7 @@ function Input(props) {
       clearInput();
       
       sendMessage(data);
+      socket.emit("message", {"message": message, "time": data, "chat_id": here, 'sender': username});
     }
   }
 
@@ -64,6 +72,7 @@ function Input(props) {
       clearInput('');
 
       sendMessage(data);
+      socket.emit("message", {"message": message, "time": data, "chat_id": here, 'sender': username});
     }
   }
 

@@ -10,3 +10,7 @@ body {
 .object-cover{
   object-fit: cover;
 }
+
+#main {
+  background-image: url("./ui/components/main/telegram.jpg");
+}
