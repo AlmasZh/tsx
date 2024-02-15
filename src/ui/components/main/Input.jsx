@@ -3,6 +3,7 @@ import { IoSend } from "react-icons/io5";
 import { useCounterStore} from "../store";
 import { useMessages, useStore } from "../../lib/store/store";
 import axios from "axios";
+import { io } from 'socket.io-client'
 
 function Input(props) {
   
