@@ -3,7 +3,6 @@ import { IoSend } from "react-icons/io5";
 import { useCounterStore} from "../store";
 import { useMessages, useStore } from "../../lib/store/store";
 import axios from "axios";
-import { io } from 'socket.io-client'
 
 function Input(props) {
   
@@ -12,8 +11,6 @@ function Input(props) {
   const { message, setText } = useCounterStore();
   const secondUserName = useStore((state) => state.secondUserName);
   const addingMessage = useMessages((state) => state.addingMessage);
-  const chats = useStore((state) => state.chats);
-  const chat_id = useStore((state) => state.chat_id);
   const chatsStatic = useStore((state) => state.chatsStatic);
   let here;
   chatsStatic.forEach((el) => {
@@ -22,13 +19,6 @@ function Input(props) {
       return;
     }
   });
-  
-  const socket = io();x
-  socket.on('sendReceived', (message) => {
-    if(message.chat_id === here) {
-      addingMessage(message);
-    }
-  })
 
   const clearInput = () => {
     setText('');
