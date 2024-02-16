@@ -23,7 +23,7 @@ function Input(props) {
     }
   });
   
-  const socket = io('https://16.171.152.69:5173');
+  const socket = io();x
   socket.on('sendReceived', (message) => {
     if(message.chat_id === here) {
       addingMessage(message);
